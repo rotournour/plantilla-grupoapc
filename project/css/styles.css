@@ -1,94 +1,111 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f9f9f9;
+	color: #333;
 }
 
 .container {
-  width: 80%;
-  margin: 20px auto;
+	width: 80%;
+	margin: 20px auto;
 }
 
 form {
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 8px;
+	margin-bottom: 20px;
+	padding: 15px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	border-radius: 8px;
 }
 
 form label {
-  display: block;
-  margin-top: 10px;
+	display: block;
+	margin-top: 10px;
 }
 
 form input,
 form select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+	width: 100%;
+	padding: 8px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 form button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+	margin-top: 15px;
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 /* Contenedor principal de la plantilla */
 /* Estilo para la plantilla */
 /* Estilo para la plantilla */
 .plantilla {
-  display: block;
-  width: 100%;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  font-size: 16px;
-  color: #333;
+	display: block;
+	width: 100%;
+	padding: 20px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	margin-top: 20px;
+	font-size: 16px;
+	color: #333;
 }
 
 /* Contenedor del header con flexbox */
 .header {
-  display: flex; /* Organiza el contenido en una fila */
-  justify-content: space-between; /* Separación máxima entre el texto y el logo */
-  align-items: center; /* Alinea verticalmente en el centro */
-  width: 100%; /* El contenedor ocupa todo el ancho */
-  margin-bottom: 20px; /* Espacio debajo del encabezado */
+	display: flex; /* Organiza el contenido en una fila */
+	justify-content: space-between; /* Separación máxima entre el texto y el logo */
+	align-items: center; /* Alinea verticalmente en el centro */
+	width: 100%; /* El contenedor ocupa todo el ancho */
+	margin-bottom: 20px; /* Espacio debajo del encabezado */
 }
 
 /* Título */
 .header h2 {
-  font-size: px; /* Tamaño más grande para el título */
-  font-weight: bold;
-  text-align: center; /* Centra el título en su espacio */
-  margin: 0; /* Elimina márgenes adicionales */
-  flex-grow: 1; /* Hace que el título ocupe todo el espacio disponible */
-  text-transform: uppercase; /* Opcional: convierte el texto a mayúsculas */
+	font-size: px; /* Tamaño más grande para el título */
+	font-weight: bold;
+	text-align: center; /* Centra el título en su espacio */
+	margin: 0; /* Elimina márgenes adicionales */
+	flex-grow: 1; /* Hace que el título ocupe todo el espacio disponible */
+	text-transform: uppercase; /* Opcional: convierte el texto a mayúsculas */
+}
+
+.headerContent {
+	width: auto;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.headerInfo {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 /* Contenedor para el logo */
 .logo {
-  max-width: 150px; /* Tamaño máximo del logo */
-  width: auto; /* Permite que el logo ajuste su tamaño dentro de este contenedor */
-  height: auto; /* Mantiene la proporción original del logo */
+	max-width: 150px; /* Tamaño máximo del logo */
+	width: auto; /* Permite que el logo ajuste su tamaño dentro de este contenedor */
+	height: auto; /* Mantiene la proporción original del logo */
 }
 
 /* Estilos para la imagen dentro del contenedor del logo */
 .logo img {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 /* Títulos grandes en negrita */
@@ -96,75 +113,177 @@ form button {
 .plantilla h2,
 .plantilla h3,
 .plantilla h4 {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #000; /* Línea debajo del título */
-  padding-bottom: 10px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #000; /* Línea debajo del título */
+	padding-bottom: 10px;
 }
 
 /* Estilo para los párrafos */
 .plantilla p {
-  margin: 15px 0;
-  line-height: 1.6;
+	margin: 15px 0;
+	line-height: 1.6;
 }
 
 /* Listas con estilo más limpio */
 .plantilla ul {
-  list-style-type: disc;
-  margin-left: 20px;
+	list-style-type: disc;
+	margin-left: 20px;
 }
 
 .plantilla a {
-  color: #007bff;
-  text-decoration: none;
+	color: #007bff;
+	text-decoration: none;
 }
 
 .plantilla a:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* Estilos para el medidor de eficiencia */
 #medidor {
-  display: flex;
-  flex-direction: column; /* Apilar los elementos verticalmente */
-  align-items: flex-start; /* Centrar los rectángulos horizontalmente */
-  gap: 20px; /* Espacio entre los rectángulos */
-  margin-top: 20px;
+	display: flex;
+	flex-direction: column; /* Apilar los elementos verticalmente */
+	align-items: flex-start; /* Centrar los rectángulos horizontalmente */
+	gap: 20px; /* Espacio entre los rectángulos */
+	margin-top: 20px;
+}
+
+.clasificacion {
+	border-top: 2px solid #000; /* Línea debajo del título */
+	border-bottom: 2px solid #000; /* Línea debajo del título */
+}
+
+#clasificacionContainerA,
+#clasificacionContainerB,
+#clasificacionContainerC,
+#clasificacionContainerD,
+#clasificacionContainerE,
+#clasificacionContainerF {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	margin-right: 20vw;
+
+	& .arrow {
+		position: relative;
+		left: 21px;
+		width: 0;
+		height: 0;
+		border-left: 40px solid transparent;
+		border-right: 40px solid transparent;
+		border-bottom: 40px solid black;
+		transform: rotate(-90deg);
+	}
+}
+
+#valorClasificacionA,
+#valorClasificacionB,
+#valorClasificacionC,
+#valorClasificacionD,
+#valorClasificacionE,
+#valorClasificacionF {
+	width: 150px;
+	height: 80px;
+	font-size: 70px;
+	font-weight: 600;
+	text-align: center;
+	font-weight: bold;
+	line-height: 80px;
+	color: white;
+	border-radius: 0 5px 5px 0;
+	background-color: #000;
+}
+
+.eficienciaContainer {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .eficiencia {
-  width: 40%; /* Ancho proporcional */
-  height: 80px; /* Ajusta la altura de los rectángulos */
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 80px;
-  color: white;
-  border-radius: 5px;
+	width: 100%; /* Ancho proporcional */
+	min-width: 100px;
+	height: 60px; /* Ajusta la altura de los rectángulos */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: left;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 80px;
+	color: white;
+	border-radius: 5px 0 0 5px;
 }
 
 #eficienciaA {
-  background-color: #4caf50; /* Verde */
+	width: 15%;
+	background-color: #4caf50; /* Verde */
+
+	& .arrow {
+		border-bottom: 40px solid #4caf50;
+	}
 }
 
 #eficienciaB {
-  background-color: #8bc34a; /* Verde claro */
+	width: 20%;
+	background-color: #8bc34a; /* Verde claro */
+
+	& .arrow {
+		border-bottom: 40px solid #8bc34a;
+	}
 }
 
 #eficienciaC {
-  background-color: #ffeb3b; /* Amarillo */
+	width: 25%;
+	background-color: #ffeb3b; /* Amarillo */
+
+	& .arrow {
+		border-bottom: 40px solid #ffeb3b;
+	}
 }
 
 #eficienciaD {
-  background-color: #ff9800; /* Naranja */
+	width: 30%;
+	background-color: #ffd831; /* Naranja Claro */
+
+	& .arrow {
+		border-bottom: 40px solid #ffd831;
+	}
+}
+
+#eficienciaE {
+	width: 35%;
+	background-color: #ff9800; /* Naranja */
+
+	& .arrow {
+		border-bottom: 40px solid #ff9800;
+	}
 }
 
 #eficienciaF {
-  background-color: #f44336; /* Rojo */
+	width: 40%;
+	background-color: #f44336; /* Rojo */
+
+	& .arrow {
+		border-bottom: 40px solid #f44336;
+	}
 }
 
-.eficiencia span {
-  display: block;
+.eficiencia .letra {
+	padding-left: 20px;
+}
+
+.arrow {
+	position: relative;
+	left: 49px;
+	width: 0;
+	height: 0;
+	border-left: 30px solid transparent;
+	border-right: 30px solid transparent;
+	border-bottom: 30px solid black;
+	transform: rotate(90deg);
 }
