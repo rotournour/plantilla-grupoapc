@@ -1,0 +1,170 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+form {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Contenedor principal de la plantilla */
+/* Estilo para la plantilla */
+/* Estilo para la plantilla */
+.plantilla {
+  display: block;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Contenedor del header con flexbox */
+.header {
+  display: flex; /* Organiza el contenido en una fila */
+  justify-content: space-between; /* Separación máxima entre el texto y el logo */
+  align-items: center; /* Alinea verticalmente en el centro */
+  width: 100%; /* El contenedor ocupa todo el ancho */
+  margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+/* Título */
+.header h2 {
+  font-size: px; /* Tamaño más grande para el título */
+  font-weight: bold;
+  text-align: center; /* Centra el título en su espacio */
+  margin: 0; /* Elimina márgenes adicionales */
+  flex-grow: 1; /* Hace que el título ocupe todo el espacio disponible */
+  text-transform: uppercase; /* Opcional: convierte el texto a mayúsculas */
+}
+
+/* Contenedor para el logo */
+.logo {
+  max-width: 150px; /* Tamaño máximo del logo */
+  width: auto; /* Permite que el logo ajuste su tamaño dentro de este contenedor */
+  height: auto; /* Mantiene la proporción original del logo */
+}
+
+/* Estilos para la imagen dentro del contenedor del logo */
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Títulos grandes en negrita */
+.plantilla h1,
+.plantilla h2,
+.plantilla h3,
+.plantilla h4 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #000; /* Línea debajo del título */
+  padding-bottom: 10px;
+}
+
+/* Estilo para los párrafos */
+.plantilla p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* Listas con estilo más limpio */
+.plantilla ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.plantilla a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.plantilla a:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el medidor de eficiencia */
+#medidor {
+  display: flex;
+  flex-direction: column; /* Apilar los elementos verticalmente */
+  align-items: flex-start; /* Centrar los rectángulos horizontalmente */
+  gap: 20px; /* Espacio entre los rectángulos */
+  margin-top: 20px;
+}
+
+.eficiencia {
+  width: 40%; /* Ancho proporcional */
+  height: 80px; /* Ajusta la altura de los rectángulos */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 80px;
+  color: white;
+  border-radius: 5px;
+}
+
+#eficienciaA {
+  background-color: #4caf50; /* Verde */
+}
+
+#eficienciaB {
+  background-color: #8bc34a; /* Verde claro */
+}
+
+#eficienciaC {
+  background-color: #ffeb3b; /* Amarillo */
+}
+
+#eficienciaD {
+  background-color: #ff9800; /* Naranja */
+}
+
+#eficienciaF {
+  background-color: #f44336; /* Rojo */
+}
+
+.eficiencia span {
+  display: block;
+}
