@@ -1,67 +1,88 @@
-document.getElementById('generarPDF').addEventListener('click', function () {
-	// Obtener los datos del formulario
-	const empresa = document.getElementById('empresa').value;
-	const direccion = document.getElementById('direccion').value;
-	const modelo = document.getElementById('modelo').value;
-	const anio = document.getElementById('anio').value;
-	const horasMotor = document.getElementById('horasMotor').value;
-	const capacidadTanque = document.getElementById('capacidadTanque').value;
-	const volumenPromedio = document.getElementById('volumenPromedio').value;
-	const velocidadPromedio =
-		document.getElementById('velocidadPromedio').value;
-	const distanciaBoquillas =
-		document.getElementById('distanciaBoquillas').value;
-	const clasificacion = document.getElementById('clasificacion').value;
+document.getElementById("generarPDF").addEventListener("click", function () {
+  // Obtener los datos del formulario
+  const empresa = document.getElementById("empresa").value;
+  const direccion = document.getElementById("direccion").value;
+  const modelo = document.getElementById("modelo").value;
+  const anio = document.getElementById("anio").value;
+  const horasMotor = document.getElementById("horasMotor").value;
+  const capacidadTanque = document.getElementById("capacidadTanque").value;
+  const volumenPromedio = document.getElementById("volumenPromedio").value;
+  const velocidadPromedio = document.getElementById("velocidadPromedio").value;
+  const distanciaBoquillas =
+    document.getElementById("distanciaBoquillas").value;
+  const clasificacion = document.getElementById("clasificacion").value;
 
-	// Llenar la plantilla con los datos del formulario
-	document.getElementById('empresaNombre').innerText = empresa;
-	document.getElementById('direccionInfo').innerText = direccion;
-	document.getElementById('detalleMaquina').innerText = `
-    ${modelo} ${anio}
-    Horas de motor: ${horasMotor}
-    Capacidad del tanque: ${capacidadTanque} L
-    Volumen promedio: ${volumenPromedio} L/ha
-    Velocidad promedio: ${velocidadPromedio} km/h
-    Distancia entre boquillas: ${distanciaBoquillas} cm
+  // Llenar la plantilla con los datos del formulario
+  document.getElementById("empresaNombre").innerText = empresa;
+  document.getElementById("direccionInfo").innerText = direccion;
+  document.getElementById("detalleMaquina").innerHTML = `
+    <p><strong>Modelo:</strong> ${modelo}</p>
+    <p><strong>Año:</strong> ${anio}</p>
+    <p><strong>Horas de motor:</strong> ${horasMotor}</p>
+    <p><strong>Capacidad del tanque:</strong> ${capacidadTanque} L</p>
+    <p><strong>Volumen promedio:</strong> ${volumenPromedio} L/ha</p>
+    <p><strong>Velocidad promedio:</strong> ${velocidadPromedio} km/h</p>
+    <p><strong>Distancia entre boquillas:</strong> ${distanciaBoquillas} cm</p>
   `;
 
-	// Muestra la clasificación resultante
-	document.getElementById(
-		`clasificacionContainer${clasificacion}`
-	).style.display = 'flex';
+  // Mostrar la clasificación resultante
+  const clasificacionContainer = document.getElementById(
+    `clasificacionContainer${clasificacion}`
+  );
+  const valorClasificacion = document.getElementById(
+    `valorClasificacion${clasificacion}`
+  );
+  clasificacionContainer.style.display = "flex";
+  valorClasificacion.style.display = "block";
+  valorClasificacion.innerText = clasificacion;
 
-	document.getElementById(
-		`valorClasificacion${clasificacion}`
-	).style.display = 'block';
+  // Obtener la fecha actual
+  const fechaActual = new Date().toLocaleDateString();
+  document.getElementById("fecha").innerText = fechaActual;
 
-	document.getElementById(`valorClasificacion${clasificacion}`).innerText =
-		clasificacion;
+  // Mostrar la plantilla para generar el PDF
+  const plantilla = document.getElementById("plantilla");
+  plantilla.style.display = "block";
 
-	// Obtener la fecha actual
-	const fechaActual = new Date().toLocaleDateString();
-	document.getElementById('fecha').innerText = fechaActual;
+  // Generar el PDF usando html2canvas y jsPDF
+  html2canvas(plantilla, { scale: 2 })
+    .then(function (canvas) {
+      // Crear el PDF con jsPDF
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF("portrait", "pt", "a4"); // Configurar A4 en puntos
 
-	// Mostrar la plantilla para generar el PDF
-	const plantilla = document.getElementById('plantilla');
-	plantilla.style.display = 'block';
+      // Dimensiones de la página A4 en puntos
+      const pageWidth = 595.28;
+      const pageHeight = 841.89;
 
-	// Usar html2canvas para capturar la plantilla y convertirla en una imagen
-	html2canvas(plantilla)
-		.then(function (canvas) {
-			// Crear el PDF con jsPDF
-			const { jsPDF } = window.jspdf;
-			const pdf = new jsPDF();
+      // Dimensiones de la imagen generada por html2canvas
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
 
-			// Agregar la imagen del canvas al PDF
-			pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 10, 10, 180, 0); // Ajusta la posición y el tamaño según sea necesario
+      // Calcular la escala para que la imagen se ajuste a la página A4 manteniendo proporción
+      const scale = Math.min(pageWidth / imgWidth, pageHeight / imgHeight);
 
-			// Descargar el PDF generado
-			pdf.save(`${empresa}_clasificacion.pdf`);
+      // Nuevas dimensiones de la imagen escalada
+      const scaledWidth = imgWidth * scale;
+      const scaledHeight = imgHeight * scale;
 
-			// Ocultar la plantilla después de la descarga
-			plantilla.style.display = 'none';
-		})
-		.catch(function (error) {
-			console.error('Error al generar el PDF: ', error);
-		});
+      // Centramos la imagen en la página A4
+      const xOffset = (pageWidth - scaledWidth) / 2;
+      const yOffset = (pageHeight - scaledHeight) / 2;
+
+      // Convertir la imagen a datos PNG
+      const imgData = canvas.toDataURL("image/png");
+
+      // Agregar la imagen escalada al PDF
+      pdf.addImage(imgData, "PNG", xOffset, yOffset, scaledWidth, scaledHeight);
+
+      // Descargar el PDF generado
+      pdf.save(`${empresa}_clasificacion.pdf`);
+
+      // Ocultar la plantilla después de la descarga
+      plantilla.style.display = "none";
+    })
+    .catch(function (error) {
+      console.error("Error al generar el PDF: ", error);
+    });
 });
