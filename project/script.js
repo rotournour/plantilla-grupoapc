@@ -11,6 +11,7 @@ document.getElementById("generarPDF").addEventListener("click", function () {
   const distanciaBoquillas =
     document.getElementById("distanciaBoquillas").value;
   const clasificacion = document.getElementById("clasificacion").value;
+  const control = document.getElementById("control").value; // Obtener el número de control
 
   // Llenar la plantilla con los datos del formulario
   document.getElementById("empresaNombre").innerText = empresa;
@@ -39,6 +40,9 @@ document.getElementById("generarPDF").addEventListener("click", function () {
   // Obtener la fecha actual
   const fechaActual = new Date().toLocaleDateString();
   document.getElementById("fecha").innerText = fechaActual;
+
+  // Mostrar el número de control en la plantilla
+  document.getElementById("controlNumero").innerText = `${control}`;
 
   // Mostrar la plantilla para generar el PDF
   const plantilla = document.getElementById("plantilla");
