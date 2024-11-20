@@ -1,158 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Generador de PDF</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Formulario de Clasificación</h1>
-      <!-- Formulario -->
-      <form id="formulario">
-        <label for="empresa">Empresa:</label>
-        <input
-          type="text"
-          id="empresa"
-          name="empresa"
-          placeholder="Nombre de la empresa"
-          required
-        />
 
-        <label for="direccion">Dirección:</label>
-        <input
-          type="text"
-          id="direccion"
-          name="direccion"
-          placeholder="Dirección completa"
-          required
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de PDF</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-        <label for="modelo">Modelo:</label>
-        <input
-          type="text"
-          id="modelo"
-          name="modelo"
-          placeholder="Ej: Caiman SP"
-          required
-        />
+<body>
+  <div class="container">
+    <h1>Formulario de Clasificación</h1>
+    <!-- Formulario -->
+    <form id="formulario">
+      <label for="empresa">Empresa:</label>
+      <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" required />
 
-        <label for="anio">Año:</label>
-        <input
-          type="number"
-          id="anio"
-          name="anio"
-          placeholder="Año de fabricación"
-          required
-        />
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección completa" required />
 
-        <label for="horasMotor">Horas de motor:</label>
-        <input
-          type="number"
-          id="horasMotor"
-          name="horasMotor"
-          placeholder="Ej: 1300"
-          required
-        />
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" placeholder="Ej: Caiman SP" required />
 
-        <label for="capacidadTanque">Capacidad del tanque:</label>
-        <input
-          type="number"
-          id="capacidadTanque"
-          name="capacidadTanque"
-          placeholder="Litros"
-          required
-        />
+      <label for="anio">Año:</label>
+      <input type="number" id="anio" name="anio" placeholder="Año de fabricación" required />
 
-        <label for="volumenPromedio">Volumen promedio:</label>
-        <input
-          type="number"
-          id="volumenPromedio"
-          name="volumenPromedio"
-          placeholder="Litros/ha"
-          required
-        />
+      <label for="horasMotor">Horas de motor:</label>
+      <input type="number" id="horasMotor" name="horasMotor" placeholder="Ej: 1300" required />
 
-        <label for="velocidadPromedio">Velocidad promedio:</label>
-        <input
-          type="number"
-          id="velocidadPromedio"
-          name="velocidadPromedio"
-          placeholder="km/h"
-          required
-        />
+      <label for="capacidadTanque">Capacidad del tanque:</label>
+      <input type="number" id="capacidadTanque" name="capacidadTanque" placeholder="Litros" required />
 
-        <label for="distanciaBoquillas">Distancia entre boquillas:</label>
-        <input
-          type="number"
-          id="distanciaBoquillas"
-          name="distanciaBoquillas"
-          placeholder="cm"
-          required
-        />
+      <label for="volumenPromedio">Volumen promedio:</label>
+      <input type="number" id="volumenPromedio" name="volumenPromedio" placeholder="Litros/ha" required />
 
-        <label for="clasificacion">Clasificación:</label>
-        <select id="clasificacion" name="clasificacion" required>
-          <option value="A">A (Más eficiente)</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-          <option value="E">E</option>
-          <option value="F">F (Menos eficiente)</option>
-        </select>
+      <label for="velocidadPromedio">Velocidad promedio:</label>
+      <input type="number" id="velocidadPromedio" name="velocidadPromedio" placeholder="km/h" required />
 
-        <button type="button" id="generarPDF">Generar PDF</button>
-      </form>
+      <label for="distanciaBoquillas">Distancia entre boquillas:</label>
+      <input type="number" id="distanciaBoquillas" name="distanciaBoquillas" placeholder="cm" required />
 
-      <!-- Plantilla para mostrar en el PDF -->
-      <div id="plantilla" class="plantilla" style="display: none">
-        <div class="header">
+      <label for="clasificacion">Clasificación:</label>
+      <select id="clasificacion" name="clasificacion" required>
+        <option value="A">A (Más eficiente)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Menos eficiente)</option>
+      </select>
+
+      <button type="button" id="generarPDF">Generar PDF</button>
+    </form>
+
+    <!-- Plantilla para mostrar en el PDF -->
+    <div id="plantilla" class="plantilla" style="display: none">
+      <div class="header">
+        <div class="headerContent">
           <h2>CLASIFICACIÓN EFICIENCIA DEL PROCESO DE PULVERIZACIÓN</h2>
-          <div class="logo">
-            <img src="assets/logo.png" alt="Logo Grupo APC" />
-          </div>
+          <p class="headerInfo">
+            <strong>Control N.° 1</strong>
+            <span style="float: right">Fecha: <span id="fecha"></span></span>
+          </p>
         </div>
-        <hr />
-        <p>
-          <strong>Control N.°</strong> 1
-          <span style="float: right">Fecha: <span id="fecha"></span></span>
-        </p>
-        <h3 id="empresaNombre"></h3>
-        <p id="direccionInfo"></p>
-        <hr />
-        <p id="detalleMaquina"></p>
-        <div class="clasificacion">
-          <h4><span id="valorClasificacion"></span></h4>
-          <!-- Medidor de eficiencia -->
-          <div id="medidor" class="medidor">
-            <div class="eficiencia" id="eficienciaA">
-              <span>A</span>
-            </div>
-            <div class="eficiencia" id="eficienciaB">
-              <span>B</span>
-            </div>
-            <div class="eficiencia" id="eficienciaC">
-              <span>C</span>
-            </div>
-            <div class="eficiencia" id="eficienciaD">
-              <span>D</span>
-            </div>
-            <div class="eficiencia" id="eficienciaF">
-              <span>F</span>
-              <div id="resultado" class="resultado">
-                <strong>Resultado: </strong
-                ><span id="resultadoClasificacion"></span>
-              </div>
-            </div>
-          </div>
+        <div class="logo">
+          <img src="assets/logo.png" alt="Logo Grupo APC" />
         </div>
       </div>
-    </div>
+      <h3 id="empresaNombre"></h3>
+      <p id="direccionInfo"></p>
+      <p id="detalleMaquina"></p>
+      <div class="clasificacion">
+        <!-- Medidor de eficiencia -->
+        <div id="medidor" class="medidor">
+          <strong>MÁS EFICIENTE</strong>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaA">
+              <span class="letra">A</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerA">
+              <span class="arrow"></span>
+              <span id="valorClasificacionA"></span>
+            </div>
+          </div>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaB">
+              <span class="letra">B</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerB">
+              <span class="arrow"></span>
+              <span id="valorClasificacionB"></span>
+            </div>
+          </div>
 
-    <!-- Bibliotecas necesarias -->
-    <script src="assets/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaC">
+              <span class="letra">C</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerC">
+              <span class="arrow"></span>
+              <span id="valorClasificacionC"></span>
+            </div>
+          </div>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaD">
+              <span class="letra">D</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerD">
+              <span class="arrow"></span>
+              <span id="valorClasificacionD"></span>
+            </div>
+          </div>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaE">
+              <span class="letra">E</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerE">
+              <span class="arrow"></span>
+              <span id="valorClasificacionE"></span>
+            </div>
+          </div>
+          <div class="eficienciaContainer">
+            <div class="eficiencia" id="eficienciaF">
+              <span class="letra">F</span>
+              <span class="arrow"></span>
+            </div>
+            <div id="clasificacionContainerF">
+              <span class="arrow"></span>
+              <span id="valorClasificacionF"></span>
+            </div>
+          </div>
+          <strong>MENOS EFICIENTE</strong>
+        </div>
+        <!-- <div id="resultado" class="resultado">
+          <strong>Resultado: </strong><span id="resultadoClasificacion"></span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Bibliotecas necesarias -->
+  <script src="assets/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
 </html>
