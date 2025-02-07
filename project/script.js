@@ -11,7 +11,17 @@ document.getElementById("generarPDF").addEventListener("click", function () {
   const distanciaBoquillas =
     document.getElementById("distanciaBoquillas").value;
   const clasificacion = document.getElementById("clasificacion").value;
-  const control = document.getElementById("control").value; // Obtener el número de control
+  const control = document.getElementById("control").value;
+
+  // Obtener las nuevas clasificaciones
+  const conocimiento = document.getElementById("conocimiento").value;
+  const estadoEquipo = document.getElementById("estadoEquipo").value;
+  const calidadPulverizacion = document.getElementById(
+    "calidadPulverizacion"
+  ).value;
+  const eficienciaProductiva = document.getElementById(
+    "eficienciaProductiva"
+  ).value;
 
   // Llenar la plantilla con los datos del formulario
   document.getElementById("empresaNombre").innerText = empresa;
@@ -25,6 +35,14 @@ document.getElementById("generarPDF").addEventListener("click", function () {
     <p><strong>Velocidad promedio:</strong> ${velocidadPromedio} km/h</p>
     <p><strong>Distancia entre boquillas:</strong> ${distanciaBoquillas} cm</p>
   `;
+
+  // Insertar las nuevas clasificaciones
+  document.getElementById("valorConocimiento").innerText = conocimiento;
+  document.getElementById("valorEstadoEquipo").innerText = estadoEquipo;
+  document.getElementById("valorCalidadPulverizacion").innerText =
+    calidadPulverizacion;
+  document.getElementById("valorEficienciaProductiva").innerText =
+    eficienciaProductiva;
 
   // Mostrar la clasificación resultante
   const clasificacionContainer = document.getElementById(

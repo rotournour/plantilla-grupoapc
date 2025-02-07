@@ -7,114 +7,98 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
-  <body>
-    <div class="container">
-      <h1>Formulario de Clasificación</h1>
-      <!-- Formulario -->
-      <form id="formulario">
-        <!-- Campo para el número de control -->
-        <label for="control">Número de Control:</label>
-        <input
-          type="text"
-          id="control"
-          name="control"
-          placeholder="Número de control"
-          required
-        />
+<body>
+  <div class="container">
+    <h1>Formulario de Clasificación</h1>
+    <!-- Formulario -->
+    <form id="formulario">
+      <!-- Campos existentes -->
+      <label for="control">Número de Control:</label>
+      <input type="text" id="control" name="control" placeholder="Número de control" required />
 
-        <label for="empresa">Empresa:</label>
-        <input
-          type="text"
-          id="empresa"
-          name="empresa"
-          placeholder="Nombre de la empresa"
-          required
-        />
+      <label for="empresa">Empresa:</label>
+      <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa" required />
 
-        <label for="direccion">Dirección:</label>
-        <input
-          type="text"
-          id="direccion"
-          name="direccion"
-          placeholder="Dirección completa"
-          required
-        />
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Dirección completa" required />
 
-        <label for="modelo">Modelo:</label>
-        <input
-          type="text"
-          id="modelo"
-          name="modelo"
-          placeholder="Ej: Caiman SP"
-          required
-        />
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" placeholder="Ej: Caiman SP" required />
 
-        <label for="anio">Año:</label>
-        <input
-          type="number"
-          id="anio"
-          name="anio"
-          placeholder="Año de fabricación"
-          required
-        />
+      <label for="anio">Año:</label>
+      <input type="number" id="anio" name="anio" placeholder="Año de fabricación" required />
 
-        <label for="horasMotor">Horas de motor:</label>
-        <input
-          type="number"
-          id="horasMotor"
-          name="horasMotor"
-          placeholder="Ej: 1300"
-          required
-        />
+      <label for="horasMotor">Horas de motor:</label>
+      <input type="number" id="horasMotor" name="horasMotor" placeholder="Ej: 1300" required />
 
-        <label for="capacidadTanque">Capacidad del tanque:</label>
-        <input
-          type="number"
-          id="capacidadTanque"
-          name="capacidadTanque"
-          placeholder="Litros"
-          required
-        />
+      <label for="capacidadTanque">Capacidad del tanque:</label>
+      <input type="number" id="capacidadTanque" name="capacidadTanque" placeholder="Litros" required />
 
-        <label for="volumenPromedio">Volumen promedio:</label>
-        <input
-          type="number"
-          id="volumenPromedio"
-          name="volumenPromedio"
-          placeholder="Litros/ha"
-          required
-        />
+      <label for="volumenPromedio">Volumen promedio:</label>
+      <input type="number" id="volumenPromedio" name="volumenPromedio" placeholder="Litros/ha" required />
 
-        <label for="velocidadPromedio">Velocidad promedio:</label>
-        <input
-          type="number"
-          id="velocidadPromedio"
-          name="velocidadPromedio"
-          placeholder="km/h"
-          required
-        />
+      <label for="velocidadPromedio">Velocidad promedio:</label>
+      <input type="number" id="velocidadPromedio" name="velocidadPromedio" placeholder="km/h" required />
 
-        <label for="distanciaBoquillas">Distancia entre boquillas:</label>
-        <input
-          type="number"
-          id="distanciaBoquillas"
-          name="distanciaBoquillas"
-          placeholder="cm"
-          required
-        />
+      <label for="distanciaBoquillas">Distancia entre boquillas:</label>
+      <input type="number" id="distanciaBoquillas" name="distanciaBoquillas" placeholder="cm" required />
 
-        <label for="clasificacion">Clasificación:</label>
-        <select id="clasificacion" name="clasificacion" required>
-          <option value="A">A (Más eficiente)</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          <option value="D">D</option>
-          <option value="E">E</option>
-          <option value="F">F (Menos eficiente)</option>
-        </select>
+      <label for="clasificacion">Clasificación:</label>
+      <select id="clasificacion" name="clasificacion" required>
+        <option value="A">A (Más eficiente)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Menos eficiente)</option>
+      </select>
 
-        <button type="button" id="generarPDF">Generar PDF</button>
-      </form>
+      <!-- Nuevos campos de clasificación -->
+      <label for="conocimiento">Clasificación de Conocimiento:</label>
+      <select id="conocimiento" name="conocimiento" required>
+        <option value="A">A (Más alto)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Más bajo)</option>
+      </select>
+
+      <label for="estadoEquipo">Clasificación de Estado del equipo:</label>
+      <select id="estadoEquipo" name="estadoEquipo" required>
+        <option value="A">A (Excelente)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Deficiente)</option>
+      </select>
+
+      <label for="calidadPulverizacion">Clasificación de Calidad de Pulverización:</label>
+      <select id="calidadPulverizacion" name="calidadPulverizacion" required>
+        <option value="A">A (Excelente)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Deficiente)</option>
+      </select>
+
+      <label for="eficienciaProductiva">Clasificación de Eficiencia Productiva:</label>
+      <select id="eficienciaProductiva" name="eficienciaProductiva" required>
+        <option value="A">A (Máxima eficiencia)</option>
+        <option value="B">B</option>
+        <option value="C">C</option>
+        <option value="D">D</option>
+        <option value="E">E</option>
+        <option value="F">F (Baja eficiencia)</option>
+      </select>
+
+      <button type="button" id="generarPDF">Generar PDF</button>
+    </form>
+  </div>
+</body>
+
 
       <!-- Plantilla para mostrar en el PDF -->
       <div id="plantilla" class="plantilla" style="display: none">
@@ -200,6 +184,35 @@
             </div>
             <strong>MENOS EFICIENTE</strong>
           </div>
+          <div class="nuevasClasificaciones">
+  <div class="cajaClasificacion">
+    <h4>Conocimiento</h4>
+    <div class="clasificacionCaja" id="conocimiento">
+      <span class="letraClasificacion" id="valorConocimiento"></span>
+    </div>
+  </div>
+  
+  <div class="cajaClasificacion">
+    <h4>Estado del equipo</h4>
+    <div class="clasificacionCaja" id="estadoEquipo">
+      <span class="letraClasificacion" id="valorEstadoEquipo"></span>
+    </div>
+  </div>
+  
+  <div class="cajaClasificacion">
+    <h4>Calidad de pulverización</h4>
+    <div class="clasificacionCaja" id="calidadPulverizacion">
+      <span class="letraClasificacion" id="valorCalidadPulverizacion"></span>
+    </div>
+  </div>
+  
+  <div class="cajaClasificacion">
+    <h4>Eficiencia productiva</h4>
+    <div class="clasificacionCaja" id="eficienciaProductiva">
+      <span class="letraClasificacion" id="valorEficienciaProductiva"></span>
+    </div>
+  </div>
+</div>
           <!-- <div id="resultado" class="resultado">
           <strong>Resultado: </strong><span id="resultadoClasificacion"></span>
         </div> -->

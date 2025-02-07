@@ -111,19 +111,28 @@ form button {
 /* Estilo para los títulos grandes dentro de la plantilla */
 .plantilla h1,
 .plantilla h2,
-.plantilla h3,
 .plantilla h4 {
-  font-size: 28px; /* Aumenté el tamaño de los títulos */
+  font-size: 30px; /* Aumenté el tamaño del título */
   font-weight: bold;
   color: #333;
-  margin-bottom: 25px; /* Aumenté el margen inferior para separar mejor los títulos */
-  border-bottom: 3px solid #000; /* Aumenté el grosor de la línea debajo del título */
-  padding-bottom: 12px; /* Aumenté el padding */
+  margin-bottom: 25px;
+  border-bottom: 3px solid #000;
+  padding-bottom: 12px;
+  text-align: center; /* Centrado del título */
+  text-transform: uppercase; /* Para hacer que todo el texto esté en mayúsculas */
 }
 
+.plantilla h3 {
+  font-size: 32px; /* Aumentamos el tamaño del título h3 */
+  font-weight: bold; /* Negrita para destacarlo */
+  color: #333; /* Gris oscuro para que se lea bien */
+  margin-bottom: 20px; /* Separamos el título de los siguientes elementos */
+  line-height: 1.5; /* Aumentamos la altura de línea para mayor legibilidad */
+}
 /* Estilo para los párrafos */
 .plantilla p {
-  margin: 20px 0; /* Aumenté el margen superior e inferior */
+  font-size: 25px; /* Aumenté el tamaño de la fuente de los párrafos */
+  margin: 20px 0; /* Margen superior e inferior */
   line-height: 1.8; /* Aumenté la altura de línea para mayor legibilidad */
 }
 
@@ -286,4 +295,54 @@ form button {
   border-right: 30px solid transparent;
   border-bottom: 30px solid black;
   transform: rotate(90deg);
+}
+.nuevasClasificaciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  border: 2px solid #ddd; /* Borde gris suave alrededor de todo el contenedor */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Fondo suave */
+}
+
+.cajaClasificacion h4 {
+  font-size: 22px; /* Tamaño fijo para el título */
+  font-weight: bold; /* Negrita */
+  color: #333; /* Color de texto gris oscuro */
+  margin-bottom: 15px; /* Espaciado debajo del título */
+}
+
+/* Estilo general para las cajitas de clasificación */
+.cajaClasificacion {
+  width: 23%;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  font-family: "Arial", sans-serif;
+  font-size: 18px; /* Tamaño de la fuente dentro de la caja */
+}
+
+/* Efecto al pasar el mouse */
+.cajaClasificacion:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Estilo para el valor dentro de la clasificación */
+.letraClasificacion {
+  font-size: 40px;
+  font-weight: bold;
+  color: #444;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 15px;
+  display: inline-block;
+  margin-top: 15px;
+  font-family: "Arial", sans-serif;
 }
