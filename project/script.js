@@ -12,8 +12,6 @@ document.getElementById("generarPDF").addEventListener("click", function () {
     document.getElementById("distanciaBoquillas").value;
   const clasificacion = document.getElementById("clasificacion").value;
   const control = document.getElementById("control").value;
-
-  // Obtener las nuevas clasificaciones
   const conocimiento = document.getElementById("conocimiento").value;
   const estadoEquipo = document.getElementById("estadoEquipo").value;
   const calidadPulverizacion = document.getElementById(
@@ -44,17 +42,27 @@ document.getElementById("generarPDF").addEventListener("click", function () {
   document.getElementById("valorEficienciaProductiva").innerText =
     eficienciaProductiva;
 
-  // Mostrar la clasificación resultante
+  // Ocultar todas las clasificaciones antes de mostrar la nueva
+  document.querySelectorAll("[id^='clasificacionContainer']").forEach((el) => {
+    el.style.display = "none";
+  });
+  document.querySelectorAll("[id^='valorClasificacion']").forEach((el) => {
+    el.style.display = "none";
+  });
+
+  // Mostrar solo la clasificación seleccionada
   const clasificacionContainer = document.getElementById(
     `clasificacionContainer${clasificacion}`
   );
   const valorClasificacion = document.getElementById(
     `valorClasificacion${clasificacion}`
   );
-  clasificacionContainer.style.display = "flex";
-  valorClasificacion.style.display = "block";
-  valorClasificacion.innerText = clasificacion;
 
+  if (clasificacionContainer && valorClasificacion) {
+    clasificacionContainer.style.display = "flex";
+    valorClasificacion.style.display = "block";
+    valorClasificacion.innerText = clasificacion;
+  }
   // Obtener la fecha actual
   const fechaActual = new Date().toLocaleDateString();
   document.getElementById("fecha").innerText = fechaActual;
